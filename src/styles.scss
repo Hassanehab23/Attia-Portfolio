@@ -1,0 +1,166 @@
+@import "tailwindcss";
+/* لدعم Dark Mode بناءً على كلاس .dark */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* لإظهار الخط الأزرق أسفل التاب المختارة */
+a.active-link {
+  color: #2563eb; // Tailwind blue-600
+}
+
+a.active-link span {
+  width: 100% !important;
+}
+/* للـ global styles أو component-specific */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1E3A8A;  /* أزرق غامق مشابه للوجو */
+  border-radius: 4px;
+  border: 2px solid #f1f1f1;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1E3A8A #f1f1f1;
+}
+@keyframes spinOnce {
+  0% {
+    transform: rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes textPop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-spin-once {
+  animation: spinOnce 1.2s ease-out forwards;
+}
+
+.animate-text-pop {
+  animation: textPop 1s ease-out forwards;
+}
+
+
+
+
+@keyframes fadeScale{ 
+    0% {opacity: 0; transform: scale(0.9);} ; 
+    100% {opacity: 1; transform: scale(1);} ; 
+   } 
+
+  .card-animate.show  { 
+    animation: fadeScale 0.6s ease forwards ; 
+   } 
+  .card-animate.hide  { 
+     opacity: 0 ; 
+    transform: scale(0.9) ; 
+    transition: all 0.4s ease ; 
+    pointer-events: none ; 
+   } 
+ 
+  .gradient-bar  { 
+    background: linear-gradient(270deg, #facc15, #f97316, #ef4444, #facc15) ; 
+    background-size: 400% 400% ; 
+    animation: gradientMove 4s ease infinite ; 
+    position: relative ; 
+    overflow: hidden ; 
+   } 
+ 
+  @keyframes gradientMove  { 
+    0% {background-position: 0% 50% } ; 
+    50% {background-position: 100% 50% } ; 
+    100% {background-position: 0% 50% } ; 
+   } 
+ 
+  .spark  { 
+    position: absolute ; 
+     top: 0 ; 
+     left: -20px ; 
+    width: 20px ; 
+     height: 100% ; 
+    background: rgba(255,255,255,0.9) ; 
+    box-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.6) ; 
+    border-radius: 50% ; 
+    animation: sparkMove 2s linear infinite ; 
+   } 
+ 
+  @keyframes sparkMove  { 
+    0% {left: -20px; opacity: 0 } ; 
+    20% {opacity: 1 } ; 
+    100% {left: 100%; opacity: 0 } ; 
+   } 
+ 
+  .tooltip  { 
+    transform: translateX(-50%) ; 
+    white-space: nowrap ; 
+   } 
+ 
+  .hover\:shadow-glow:hover  { 
+    box-shadow: 0 0 25px rgba(250, 204, 21, 0.7) , 
+                0 0 50 px rgba(249, 115, 22, 0.5) , 
+                0 0 75 px rgba(239, 68, 68, 0.4) ; 
+   } 
+ 
+  @keyframes slideInGlow  { 
+    0% { 
+       opacity: 0 ; 
+      transform: translateX(60px) scale(0.95) ; 
+      box-shadow: none ; 
+     } 
+    60%{ 
+       opacity: 1 ; 
+      transform: translateX(0) scale(1.02) ; 
+      box-shadow: 0 0 25px rgba(250, 204, 21, 0.7) , 
+                  0 0 50 px rgba(249, 115, 22, 0.5) , 
+                  0 0 75 px rgba(239, 68, 68, 0.4) ; 
+     } 
+    100%{ 
+      transform: translateX(0) scale(1) ; 
+      box-shadow: none ; 
+     } 
+   } 
+ 
+  .card-animate.slide-in  { 
+    animation: slideInGlow 1s ease forwards ; 
+   } 
+ 
+  .ripple  { 
+    position: absolute ; 
+    border-radius: 50% ; 
+    transform: scale(0) ; 
+    animation: rippleAnim 0.6s linear ; 
+    background-color: rgba(255, 255, 255, 0.4) ; 
+    pointer-events: none ; 
+   } 
+ 
+  @keyframes rippleAnim  { 
+     to  { 
+      transform: scale(4) ; 
+       opacity: 0 ; 
+     } 
+   } 
+
+
+    .bar {
+      transition: height 0.5s ease;
+    }

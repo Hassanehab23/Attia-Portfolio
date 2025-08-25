@@ -1,0 +1,561 @@
+ <!-- NavBar Section -->
+<nav
+  class="bg-gray-900 text-white sticky top-0 z-50 shadow-md transition-transform duration-500 ease-in-out"
+  [ngClass]="{
+    'transform -translate-y-full': navbarHidden,
+    'transform translate-y-0': !navbarHidden
+  }"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a (click)="scrollTo('Home')" class="cursor-pointer text-2xl font-extrabold tracking-wider text-red-600 dark:text-emerald-400 hover:text-red-400 dark:hover:text-emerald-300 transition duration-200">
+          Attia <span class="text-white">Mostafa</span>
+        </a>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-10 mx-auto">
+        <a (click)="scrollTo('Home')" class="cursor-pointer nav-link relative group text-emerald-300 hover:text-white transition">
+          Home
+          <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-emerald-300 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a (click)="scrollTo('About')" class="cursor-pointer relative group text-emerald-300 hover:text-white transition">
+          About
+          <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-emerald-300 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a (click)="scrollTo('Services')" class="cursor-pointer relative group text-emerald-300 hover:text-white transition">
+          Services
+          <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-emerald-300 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a (click)="scrollTo('Portfolio')" class="cursor-pointer relative group text-emerald-300 hover:text-white transition">
+          Portfolio
+          <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-emerald-300 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a (click)="scrollTo('Contact')" class="cursor-pointer relative group text-emerald-300 hover:text-white transition">
+          Contact
+          <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-emerald-300 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex items-center gap-4">
+        <!-- Dark Mode Toggle Button -->
+        <button (click)="toggleDarkMode()" class="cursor-pointer text-white hover:text-yellow-400 transition duration-300 text-xl" aria-label="Toggle Dark Mode">
+          <i [ngClass]="isDarkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button (click)="toggleMenu()" class="cursor-pointer md:hidden focus:outline-none" aria-label="Toggle Menu">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="isMenuOpen" class="md:hidden px-4 pb-4 bg-gray-900">
+    <a (click)="scrollTo('Home')" class="block py-2 text-emerald-300 hover:text-white">Home</a>
+    <a (click)="scrollTo('About')" class="block py-2 text-emerald-300 hover:text-white">About</a>
+    <a (click)="scrollTo('Services')" class="block py-2 text-emerald-300 hover:text-white">Services</a>
+    <a (click)="scrollTo('Portfolio')" class="block py-2 text-emerald-300 hover:text-white">Portfolio</a>
+    <a (click)="scrollTo('Contact')" class="block py-2 text-emerald-300 hover:text-white">Contact</a>
+
+    <!-- Dark Mode Toggle in Mobile Menu -->
+    <button (click)="toggleDarkMode()" class="mt-2 w-full flex items-center gap-2 py-2 px-4 text-white hover:text-yellow-400 transition">
+      <i [ngClass]="isDarkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
+      <span>{{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}</span>
+    </button>
+  </div>
+</nav>
+
+
+<!-- Home Section -->
+<section id="Home" class="bg-gray-white dark:bg-gray-950 text-gray-950 dark:text-gray-100 py-10 md:py-20 px-6 sm:px-12 lg:px-24 font-sans">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-[url('/Background.jpeg')] bg-cover bg-center opacity-10 z-0"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10 w-[85%]">
+    
+    <!-- Text Content -->
+    <div class="flex-1 text-center md:text-left space-y-6">
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+        Hi, I'm 
+        <span class="text-red-500 dark:text-green-500  inline-block animate-text-pop delay-[300ms]">Attia Mostafa</span>
+        <br />
+        <span class="block mt-2" data-aos="fade-right" data-aos-delay="600">
+          Media Buyer & Performance Marketer
+        </span>
+      </h1>
+
+      <p class="text-lg text-gray-400 dark:text-gray-700 max-w-xl" data-aos="fade-right" data-aos-delay="800">
+        I help brands grow profitably through data-driven paid ads on Facebook, TikTok, and Google. Let's scale your business the smart way.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 mt-6 justify-center md:justify-start" data-aos="zoom-in" data-aos-delay="1000">
+        <a (click)="scrollTo('Portfolio')" class="cursor-pointer px-6 py-3 bg-red-600 dark:bg-green-600 text-white font-semibold rounded-md shadow hover:bg-red-700 transition">
+          View My Results
+        </a>
+        <a href="Attia_Mostafa-Attia-ats[1].pdf" download class="cursor-pointer px-6 py-3 border border-gray-500 dark:border-gray-100  text-gray-500 dark:text-gray-100 font-semibold rounded-md hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition">
+        Download CV
+        </a>
+        <a (click)="scrollTo('Contact')"class="cursor-pointer px-6 py-3 border border-gray-500 dark:border-gray-100  text-gray-500 dark:text-gray-100 font-semibold rounded-md hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition">
+          Contact Me
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="relative group w-full max-w-sm mx-auto rounded-2xl shadow-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="800">
+      <img
+        src="Hero.png"
+        alt="Amr Attia"
+        class="w-full h-auto transform transition-transform duration-500 group-hover:scale-105"
+      />
+      <div class="absolute inset-0 bg-black bg-opacity-60 dark:bg-white dark:bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-40 transition-opacity duration-500">
+        <h2 class="text-white dark:text-black text-2xl font-bold" data-aos="fade-up" data-aos-delay="100">
+          Attia Mostafa
+        </h2>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- About Section -->
+<section id="About" class="bg-white dark:bg-gray-950 text-gray-950 dark:text-gray-100 py-10 md:py-20 px-6 sm:px-12 lg:px-24 font-sans">
+  <div class="max-w-6xl mx-auto space-y-12">
+
+    <!-- Title -->
+    <div class="text-center" data-aos="fade-up">
+    <h2 class="text-5xl font-extrabold mb-6 drop-shadow-2xl text-green-600 dark:text-yellow-300 animate-fade-in-up">About Me</h2>
+      <p class="text-lg text-gray-300 opacity-80">Media Buyer & Growth Strategist</p>
+    </div>
+
+    <!-- Platforms -->
+    <div class="text-base leading-relaxed space-y-4" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="text-2xl font-semibold mb-2 text-yellow-400">Platforms I Work On:</h3>
+      <div class="flex flex-wrap gap-6 text-lg">
+        <span class="flex items-center gap-2 text-blue-700 dark:text-blue-500"><i class="fab fa-facebook-f"></i> Facebook</span>
+        <span class="flex items-center gap-2 text-pink-700 dark:text-pink-500"><i class="fab fa-instagram"></i> Instagram</span>
+        <span class="flex items-center gap-2 text-gray-700 dark:text-white"><i class="fab fa-tiktok"></i> TikTok</span>
+        <span class="flex items-center gap-2 text-yellow-500 dark:text-yellow-400"><i class="fab fa-snapchat"></i> Snapchat</span>
+        <span class="flex items-center gap-2 text-red-700 dark:text-red-500"><i class="fab fa-google"></i> Google</span>
+      </div>
+    </div>
+
+    <!-- Industries -->
+    <div data-aos="fade-up" data-aos-delay="400">
+      <h3 class="text-2xl font-semibold mb-2 text-green-400">Industries I Serve:</h3>
+      <p class="italic text-lg text-gray-300">
+        E-commerce – Real Estate – Services – Medical – Educational – Food & Beverage
+      </p>
+    </div>
+
+    <!-- Countries -->
+    <div data-aos="fade-up" data-aos-delay="600">
+      <h3 class="text-2xl font-semibold mb-2 text-cyan-400">Regions I've Worked In:</h3>
+      <p class="text-lg text-gray-300">
+        Egypt, Saudi Arabia, Emirates, Kuwait, Jordan, Qatar, Turkey, USA, and Europe.
+      </p>
+    </div>
+
+    <!-- Ad Spend -->
+    <div data-aos="fade-up" data-aos-delay="800">
+      <h3 class="text-2xl font-semibold mb-2 text-pink-400">Proven Results:</h3>
+      <p class="font-medium text-lg text-gray-300 dark:text-white">
+        Successfully managed ad spend exceeding 
+        <span class="font-bold text-yellow-300">80 million AED</span> 
+        across various social platforms with consistent performance growth.
+      </p>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-16" data-aos="fade-up" data-aos-delay="100">
+
+      <!-- Education -->
+      <div class="bg-gradient-to-br from-indigo-500 to-purple-600 p-6 rounded-xl shadow-lg text-white hover:scale-105 transition-transform duration-300">
+        <h4 class="text-xl font-bold mb-2">🎓 Education</h4>
+        <p class="text-sm opacity-90 leading-relaxed">
+          Bachelor's Degree in Information Systems
+          <br>
+          Modern Academy
+          <br>
+          Grade : B+ 
+        </p>
+      </div>
+
+      <!-- Experience -->
+      <div class="bg-gradient-to-br from-pink-500 to-red-500 p-6 rounded-xl shadow-lg text-white hover:scale-105 transition-transform duration-300">
+        <h4 class="text-xl font-bold mb-2">💼 Experience</h4>
+        <p class="text-sm opacity-90 leading-relaxed">
+          6+ years managing ad campaigns for top brands in MENA & Europe. Specialized in performance marketing.
+        </p>
+      </div>
+
+      <!-- Courses -->
+      <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 p-6 rounded-xl shadow-lg text-gray-900 hover:scale-105 transition-transform duration-300">
+        <h4 class="text-xl font-bold mb-2">📚 Courses</h4>
+        <p class="text-sm opacity-90 leading-relaxed">
+          Certified in Meta Ads, Google Ads, and Funnel Strategy. Always up to date with platform changes.
+        </p>
+      </div>
+
+      <!-- Training -->
+      <div class="bg-gradient-to-br from-red-400 to-emerald-600 p-6 rounded-xl shadow-lg text-white hover:scale-105 transition-transform duration-300">
+        <h4 class="text-xl font-bold mb-2"><i class="fas fa-bolt text-yellow-400"></i> Training</h4>
+        <p class="text-sm opacity-90 leading-relaxed">
+           Digital MarketingTraining
+          Orbscop Company
+<br>
+          MediaBuyingTraining
+          SMGCompany
+<br>
+          DataCollectionTraining
+          HudlCompany
+        </p>
+      </div>
+
+      <!-- Skills -->
+      <div class="bg-gradient-to-br from-green-400 to-emerald-600 p-6 rounded-xl shadow-lg text-white hover:scale-105 transition-transform duration-300">
+        <h4 class="text-xl font-bold mb-2">🛠️ Skills</h4>
+        <p class="text-sm opacity-90 leading-relaxed">
+          Paid Ads, A/B Testing, Pixel Setup, Funnel Optimization, Copywriting, Data Analysis, Retargeting.
+        </p>
+      </div>
+
+      <!-- Languages -->
+      <div class="bg-gradient-to-br from-cyan-400 to-blue-600 p-6 rounded-xl shadow-lg text-white sm:col-span-2 md:col-span-1 hover:scale-105 transition-transform duration-300">
+        <h4 class="text-xl font-bold mb-2">🌍 Languages</h4>
+        <p class="text-sm opacity-90 leading-relaxed">
+          Fluent in Arabic & English. Capable of handling ads, reporting, and communication in both languages.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<!-- Portfolio Section -->
+<section id="Portfolio" class="bg-white dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white py-10 px-6 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <h2 class="text-5xl font-extrabold text-center mb-16 text-green-400 dark:text-yellow-400 drop-shadow-lg" data-aos="fade-up">
+      My Portfolio
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      
+      <!-- Amanda Company -->
+      <div 
+        class="group relative bg-white/50 rounded-2xl p-6 shadow-xl backdrop-blur-sm border border-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] cursor-pointer"
+        data-aos="zoom-in-up"
+        data-aos-delay="100"
+      >
+        <img src="Amanda.jpg" alt="Amanda"
+             class="md:h-50 w-60 h-80 w-80 mb-6 transition duration-300 group-hover:scale-110 mx-auto" />
+        <h3 class="text-xl font-semibold text-gray-500 dark:text-white mb-2">Amanda Company</h3>
+        <p class="text-gray-500 dark:text-gray-300 text-md mb-6">
+          Premium Egyptian furniture brand delivering elegant designs and bespoke craftsmanship tailored for A-Class clientele.
+        </p>
+        <button routerLink="/Amanda" class="cursor-pointer mt-auto text-sm text-yellow-400 border border-yellow-400 px-4 py-1.5 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition duration-300">
+          View More
+        </button>
+      </div>
+
+      <!-- Sinoalex Company -->
+      <div 
+        class="group relative bg-white/50 rounded-2xl p-6 shadow-xl backdrop-blur-sm border border-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] cursor-pointer"
+        data-aos="zoom-in-up"
+        data-aos-delay="300"
+      >
+        <img src="Sinoalex.jpg" alt="Sinoalex"
+             class="md:h-50 w-60 h-80 w-80 mb-6 transition duration-300 group-hover:scale-110 mx-auto" />
+        <h3 class="text-xl font-semibold text-gray-500 dark:text-white mb-2">Sinoalex Company</h3>
+        <p class="text-gray-500 dark:text-gray-300 text-md mb-6">
+          Prestigious Chinese furniture brand focused on luxurious, innovative designs for sophisticated A-Class customers.
+        </p>
+        <button routerLink="/Sinoalex" class="cursor-pointer mt-auto text-sm text-red-400 border border-red-400 px-4 py-1.5 rounded-full hover:bg-red-400 hover:text-gray-900 transition duration-300">
+          View More
+        </button>
+      </div>
+
+      <!-- Gold Company -->
+      <div 
+        class="group relative bg-white/50 rounded-2xl p-6 shadow-xl backdrop-blur-sm border border-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] cursor-pointer"
+        data-aos="zoom-in-up"
+        data-aos-delay="200"
+      >
+        <img src="Gold.jpg" alt="Gold"
+             class="md:h-50 w-60 h-80 w-80 mb-6 transition duration-300 group-hover:scale-110 mx-auto" />
+        <h3 class="text-xl font-semibold text-gray-500 dark:text-white mb-2">Gold Company</h3>
+        <p class="text-gray-500 dark:text-gray-300 text-md mb-6">
+          Leading beauty and makeup retailer specializing in premium products with targeted digital campaigns.
+        </p>
+        <button routerLink="/Gold" class="cursor-pointer mt-auto text-sm text-indigo-400 border border-indigo-400 px-4 py-1.5 rounded-full hover:bg-indigo-400 hover:text-gray-900 transition duration-300">
+          View More
+        </button>
+      </div>
+
+      <!-- Dream Box Company -->
+      <div 
+        class="group relative bg-white/50 rounded-2xl p-6 shadow-xl backdrop-blur-sm border border-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] cursor-pointer"
+        data-aos="zoom-in-up"
+        data-aos-delay="100"
+      >
+        <img src="Dream Box.jpg" alt="Dream Box"
+             class="md:h-50 w-60 h-80 w-80 mb-6 transition duration-300 group-hover:scale-110 mx-auto" />
+        <h3 class="text-xl font-semibold text-gray-500 dark:text-white mb-2">Dream Box Company</h3>
+        <p class="text-gray-500 dark:text-gray-300 text-md mb-6">
+          Luxury gift box curator crafting unique, high-end gift experiences with elegant packaging and personalized touches.
+        </p>
+        <button routerLink="/DreamBox" class="cursor-pointer mt-auto text-sm text-yellow-400 border border-yellow-400 px-4 py-1.5 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition duration-300">
+          View More
+        </button>
+      </div>      
+
+      <!-- Golden Stars FC -->
+      <div 
+        class="group relative bg-white/50 rounded-2xl p-6 shadow-xl backdrop-blur-sm border border-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] cursor-pointer"
+        data-aos="zoom-in-up"
+        data-aos-delay="300"
+      >
+        <img src="Golden Stars FC.jpg" alt="Golden Stars FC"
+             class="md:h-50 w-60 h-80 w-80 mb-6 transition duration-300 group-hover:scale-110 mx-auto" />
+        <h3 class="text-xl font-semibold text-gray-500 dark:text-white mb-2">Golden Stars FC</h3>
+        <p class="text-gray-500 dark:text-gray-300 text-md mb-6">
+          Dynamic football academy focused on nurturing talent and fostering sportsmanship for youth in the Gulf region.
+        </p>
+        <button routerLink="/Golden" class="cursor-pointer mt-auto text-sm text-red-400 border border-red-400 px-4 py-1.5 rounded-full hover:bg-red-400 hover:text-gray-900 transition duration-300">
+          View More
+        </button>
+      </div>
+
+      <!-- EL-Faurouz Company -->
+      <div 
+        class="group relative bg-white/50 rounded-2xl p-6 shadow-xl backdrop-blur-sm border border-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] cursor-pointer"
+        data-aos="zoom-in-up"
+        data-aos-delay="200"
+      >
+        <img src="Faurouz.jpg" alt="Faurouz"
+             class="md:h-50 w-60 h-80 w-80 mb-6 transition duration-300 group-hover:scale-110 mx-auto" />
+        <h3 class="text-xl font-semibold text-gray-500 dark:text-white mb-2">EL-Faurouz Company</h3>
+        <p class="text-gray-500 dark:text-gray-300 text-md mb-6">
+          Premium furniture showroom offering modern and classic designs targeting the middle-class market.
+        </p>
+        <button routerLink="/ElFaurouz" class="cursor-pointer mt-auto text-sm text-indigo-400 border border-indigo-400 px-4 py-1.5 rounded-full hover:bg-indigo-400 hover:text-gray-900 transition duration-300">
+          View More
+        </button>
+      </div>
+
+      <!-- Elkhaoga Company -->
+      <div 
+        class="group relative bg-white/50 rounded-2xl p-6 shadow-xl backdrop-blur-sm border border-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] cursor-pointer"
+        data-aos="zoom-in-up"
+        data-aos-delay="100"
+      >
+        <img src="Elkhaoga.jpg" alt="Elkhaoga"
+             class="md:h-50 w-60 h-80 w-80 mb-6 transition duration-300 group-hover:scale-110 mx-auto" />
+        <h3 class="text-xl font-semibold text-gray-500 dark:text-white mb-2">Elkhaoga Company</h3>
+        <p class="text-gray-500 dark:text-gray-300 text-md mb-6">
+          Trusted used cars dealership offering diverse selections and customer-focused sales strategies.
+        </p>
+        <button routerLink="/Elkhaoaga" class="cursor-pointer mt-auto text-sm text-yellow-400 border border-yellow-400 px-4 py-1.5 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition duration-300">
+          View More
+        </button>
+      </div>
+
+      <!-- Cases AExclusive Page -->
+      <div 
+        class="group relative bg-white/50 rounded-2xl p-6 shadow-xl backdrop-blur-sm border border-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] cursor-pointer"
+        data-aos="zoom-in-up"
+        data-aos-delay="200"
+      >
+        <img src="Cases.jpg" alt="Cases"
+             class="md:h-50 w-60 h-80 w-80 mb-6 transition duration-300 group-hover:scale-110 mx-auto" />
+        <h3 class="text-xl font-semibold text-gray-500 dark:text-white mb-2">Cases AExclusive Page </h3>
+        <p class="text-gray-500 dark:text-gray-300 text-md mb-6">
+          Trendy phone cases retailer focused on style, protection, and digital marketing campaigns.
+        </p>
+        <button routerLink="/CasesAExclusive" class="cursor-pointer mt-auto text-sm text-indigo-400 border border-indigo-400 px-4 py-1.5 rounded-full hover:bg-indigo-400 hover:text-gray-900 transition duration-300">
+          View More
+        </button>
+      </div>
+
+      <!-- CV Creative Page -->
+      <div 
+        class="group relative bg-white/50 rounded-2xl p-6 shadow-xl backdrop-blur-sm border border-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] cursor-pointer"
+        data-aos="zoom-in-up"
+        data-aos-delay="300"
+      >
+        <img src="CV.jpg" alt="CV"
+             class="md:h-50 w-60 h-80 w-80 mb-6 transition duration-300 group-hover:scale-110 mx-auto" />
+        <h3 class="text-xl font-semibold text-gray-500 dark:text-white mb-2">CV Creative Page</h3>
+        <p class="text-gray-500 dark:text-gray-300 text-md mb-6">
+          Innovative CV design platform helping professionals stand out with creative, tailored resumes.
+        </p>
+        <button routerLink="/CV" class="cursor-pointer mt-auto text-sm text-red-400 border border-red-400 px-4 py-1.5 rounded-full hover:bg-red-400 hover:text-gray-900 transition duration-300">
+          View More
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Contact Section -->
+<section id="Contact" class="bg-white dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-600  py-24 px-6 overflow-hidden">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+    
+    <!-- Info + Links -->
+    <div class="space-y-10" data-aos="fade-right" data-aos-delay="200">
+      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+        Get in Touch
+      </h2>
+
+      <p class="text-lg text-gray-500 dark:text-gray-300 max-w-lg">
+        Whether you want to start a project, ask a question, or just say hi — feel free to reach out anytime via WhatsApp, phone, or email.
+      </p>
+
+      <div class="space-y-4 text-base">
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/201028766623" target="_blank" class="flex items-center gap-4 group transition hover:translate-x-1">
+          <div class="p-3 bg-green-600 dark:bg-green-100 rounded-full shadow-md group-hover:scale-110 transition duration-300">
+            <i class="fab fa-whatsapp text-white dark:text-green-600 text-xl"></i>
+          </div>
+          <span class="font-medium group-hover:text-green-400 transition duration-300">Message on WhatsApp</span>
+        </a>
+
+        <!-- Phone -->
+        <a href="tel:+201028766623" class="flex items-center gap-4 group transition hover:translate-x-1">
+          <div class="p-3 bg-blue-600 dark:bg-blue-100 rounded-full shadow-md group-hover:scale-110 transition duration-300">
+            <i class="fas fa-phone-alt text-white dark:text-blue-600 text-xl"></i>
+          </div>
+          <span class="font-medium group-hover:text-blue-400 transition duration-300">Call Me</span>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:attiaarqam@gmail.com?subject=Hello&body=I%20would%20like%20to%20connect%20with%20you" class="flex items-center gap-4 group transition hover:translate-x-1">
+          <div class="p-3 bg-red-600 dark:bg-red-200 rounded-full shadow-md group-hover:scale-110 transition duration-300">
+            <i class="fas fa-envelope text-white dark:text-red-600 text-xl"></i>
+          </div>
+          <span class="font-medium group-hover:text-red-400 transition duration-300">Send an Email</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Footer Section -->
+<footer class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 py-8 px-6 transition-colors duration-300">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+
+    <!-- Logo and Name -->
+    <div class="text-center md:text-left">
+      <h3 (click)="scrollTo('Home')" class="cursor-pointer text-2xl font-bold text-red-600 dark:text-red-400 hover:underline">
+        Attia Mostafa
+      </h3>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Media Buyer & Performance Marketer</p>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="flex flex-wrap justify-center md:justify-start gap-6 text-sm">
+      <a (click)="scrollTo('Home')" class="cursor-pointer hover:text-red-500 dark:hover:text-red-400 transition">Home</a>
+      <a (click)="scrollTo('About')" class="cursor-pointer hover:text-red-500 dark:hover:text-red-400 transition">About</a>
+      <a (click)="scrollTo('Services')" class="cursor-pointer hover:text-red-500 dark:hover:text-red-400 transition">Services</a>
+      <a (click)="scrollTo('Portfolio')" class="cursor-pointer hover:text-red-500 dark:hover:text-red-400 transition">Portfolio</a>
+      <a (click)="scrollTo('Contact')" class="cursor-pointer hover:text-red-500 dark:hover:text-red-400 transition">Contact</a>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="flex gap-5">
+      <a href="https://www.facebook.com/share/19MhESSVzr/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f text-gray-600 dark:text-gray-300 hover:text-blue-600 transition"></i>
+      </a>
+      <a href="mailto:attiaarqam@gmail.com" target="_blank" aria-label="Email">
+        <i class="fas fa-envelope text-gray-600 dark:text-gray-300 hover:text-red-500 transition"></i>
+      </a>
+      <a href="https://www.instagram.com/amrmustafa30?igsh=MTNhcXhwZWUwZGVwNQ==" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram text-gray-600 dark:text-gray-300 hover:text-pink-500 transition"></i>
+      </a>
+      <a href="https://wa.me/2001028766623" target="_blank" aria-label="Whatsapp">
+        <i class="fab fa-whatsapp text-gray-600 dark:text-gray-300 hover:text-green-500 transition"></i>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Bottom Text -->
+  <div class="mt-6 text-center text-xs text-gray-500 dark:text-gray-400">
+    © {{ currentYear }} Attia Mostafa. All rights reserved.
+  </div>
+
+  <!-- Scroll To Top Button -->
+  <button
+    id="scrollToTopBtn"
+    aria-label="Scroll to top"
+    class="fixed bottom-6 right-6 z-50 bg-red-500 hover:bg-red-600 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-0 invisible dark:bg-red-400 dark:hover:bg-red-500"
+  >
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</footer>
+
+
+
+
+<!-- Connection Section -->
+<section class="fixed bottom-20 right-4 flex flex-col gap-3 z-50">
+  
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/2001028766623" target="_blank"
+     class="flex items-center gap-2 bg-white text-green-600 px-4 py-2 rounded-full shadow-md hover:scale-95 transform transition duration-200">
+    <i class="fab fa-whatsapp text-xl"></i>
+    <span class="font-semibold">WhatsApp Chat</span>
+  </a>
+
+  <!-- Call Us Button -->
+  <a href="tel:+01028766623"
+     class="flex items-center gap-2 bg-white text-blue-600 px-4 py-2 rounded-full shadow-md hover:scale-95 transform transition duration-200">
+    <i class="fas fa-phone-alt text-xl"></i>
+    <span class="font-semibold">Call Us</span>
+  </a>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+ 
+
+ 
+
+ 

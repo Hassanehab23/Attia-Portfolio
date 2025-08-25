@@ -1,0 +1,61 @@
+@charset "UTF-8";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* لإظهار الخط الأزرق أسفل التاب المختارة */
+a.active-link {
+  color: #2563eb;
+}
+
+a.active-link span {
+  width: 100% !important;
+}
+
+/* للـ global styles أو component-specific */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1E3A8A; /* أزرق غامق مشابه للوجو */
+  border-radius: 4px;
+  border: 2px solid #f1f1f1;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1E3A8A #f1f1f1;
+}
+
+@keyframes spinOnce {
+  0% {
+    transform: rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes textPop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.animate-spin-once {
+  animation: spinOnce 1.2s ease-out forwards;
+}
+
+.animate-text-pop {
+  animation: textPop 1s ease-out forwards;
+}/*# sourceMappingURL=styles.css.map */
