@@ -1,9 +1,6 @@
-import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import AOS from 'aos';
-import { DreamBoxComponent } from './dream-box/dream-box.component';
-import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from "./home/home.component";
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +17,13 @@ export class AppComponent {
   isMenuOpen = false;
     lastScroll = 0;
   navbarHidden = false;
+    constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
+    });
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;

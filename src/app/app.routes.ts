@@ -15,6 +15,7 @@ import { CasesAExclusiveComponent } from './cases-aexclusive/cases-aexclusive.co
 import { ElFaurouzComponent } from './el-faurouz/el-faurouz.component';
 import { ElkhaogaComponent } from './elkhaoga/elkhaoga.component';
 import { CVCreativeComponent } from './cvcreative/cvcreative.component';
+import { BogyComponent } from './bogy/bogy.component';
 
 export const routes: Routes = [
     {path:"",redirectTo:"Home",pathMatch:'full'},
@@ -35,5 +36,6 @@ export const routes: Routes = [
     {path:"Elkhaoaga",component:ElkhaogaComponent,title:"Projects/El-khaoaga"},
     {path:"CV",component:CVCreativeComponent,title:"Projects/CVCreative"},
 
-    {path:"Amanda",component:AmandaComponent,title:"Projects/Amanda"}
+    {path:"Amanda",component:AmandaComponent,title:"Projects/Amanda"},
+    {path:"Bogy",component:BogyComponent,title:"Projects/Bogy Academy"}
 ]
