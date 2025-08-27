@@ -1,9 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { DreamBoxComponent } from './dream-box/dream-box.component';
-import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { ServicesComponent } from './services/services.component';
-import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
@@ -20,9 +18,7 @@ import { BogyComponent } from './bogy/bogy.component';
 export const routes: Routes = [
     {path:"",redirectTo:"Home",pathMatch:'full'},
     {path:"Home",component:HomeComponent,title:"Portofolio/Home"},
-    {path:"About",component:AboutComponent,title:"Portofolio/About"},
     {path:"Services",component:ServicesComponent,title:"Portofolio/Services"},
-    {path:"Testimonials",component:TestimonialsComponent,title:"Portofolio/Testimonials"},
     {path:"Projects",component:ProjectsComponent,title:"Portofolio/Projects"},
     {path:"Contact",component:ContactComponent,title:"Portofolio/Contact"},
     
@@ -30,12 +26,11 @@ export const routes: Routes = [
     {path:"Gold",component:GoldComponent,title:"Projects/Gold"},
     {path:"Golden",component:GoldenStarsComponent,title:"Projects/Golden Stars FC"},
     {path:"Sinoalex",component:SinoalexComponent,title:"Projects/Sinoalex"},
-
     {path:"CasesAExclusive",component:CasesAExclusiveComponent,title:"Projects/CasesAExclusive"},
+    
     {path:"ElFaurouz",component:ElFaurouzComponent,title:"Projects/El-Faurouz"},
     {path:"Elkhaoaga",component:ElkhaogaComponent,title:"Projects/El-khaoaga"},
     {path:"CV",component:CVCreativeComponent,title:"Projects/CVCreative"},
-
     {path:"Amanda",component:AmandaComponent,title:"Projects/Amanda"},
     {path:"Bogy",component:BogyComponent,title:"Projects/Bogy Academy"}
 ]

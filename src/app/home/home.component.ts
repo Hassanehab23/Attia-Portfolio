@@ -18,6 +18,7 @@ export class HomeComponent {
   lastScroll = 0;
   navbarHidden = false;
 
+  
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
