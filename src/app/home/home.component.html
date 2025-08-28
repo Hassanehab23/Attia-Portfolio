@@ -76,11 +76,12 @@
 </nav>
 
 
-<!-- Home Section -->
-<section id="Home" class="bg-gray-white dark:bg-gray-950 text-gray-950 dark:text-gray-100 py-10 md:py-20 px-6 sm:px-12 lg:px-24 font-sans">
+  <!-- Home Section -->
+
+  <section id="Home" class="relative bg-gray-white dark:bg-gray-950 text-gray-950 dark:text-gray-100 py-10 md:py-20 px-6 sm:px-12 lg:px-24 font-sans">
   <!-- Background -->
   <div class="absolute inset-0 bg-[url('/Background.jpeg')] bg-cover bg-center opacity-10 z-0"></div>
-
+  
   <!-- Content -->
   <div class="relative z-10 container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10 w-[85%]">
     
@@ -88,14 +89,14 @@
     <div class="flex-1 text-center md:text-left space-y-6">
       <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
         Hi, I'm 
-        <span class="text-red-500 dark:text-green-500  inline-block animate-text-pop delay-[300ms]">Attia Mostafa</span>
+        <span class="text-red-500 dark:text-green-500 inline-block animate-text-pop delay-[300ms]">Attia Mostafa</span>
         <br />
         <span class="block mt-2" data-aos="fade-right" data-aos-delay="600">
           Media Buyer & Performance Marketer
         </span>
       </h1>
 
-      <p class="text-lg text-gray-400 dark:text-gray-700 max-w-xl" data-aos="fade-right" data-aos-delay="800">
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-xl" data-aos="fade-right" data-aos-delay="800">
         I help brands grow profitably through data-driven paid ads on Facebook, TikTok, and Google. Let's scale your business the smart way.
       </p>
       
@@ -103,13 +104,12 @@
         <a (click)="scrollTo('Portfolio')" class="cursor-pointer px-6 py-3 bg-red-600 dark:bg-green-600 text-white font-semibold rounded-md shadow hover:bg-red-700 transition">
           View My Results
         </a>
-        <a href="Attia_Mostafa-Attia-ats[1].pdf" download class="cursor-pointer px-6 py-3 border border-gray-500 dark:border-gray-100  text-gray-500 dark:text-gray-100 font-semibold rounded-md hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition">
-        Download CV
+        <a href="assets/Attia_Mostafa.pdf" download class="cursor-pointer px-6 py-3 border border-gray-500 dark:border-gray-100 text-gray-500 dark:text-gray-100 font-semibold rounded-md hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition">
+          Download CV
         </a>
-        <a (click)="scrollTo('Contact')"class="cursor-pointer px-6 py-3 border border-gray-500 dark:border-gray-100  text-gray-500 dark:text-gray-100 font-semibold rounded-md hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition">
+        <a (click)="scrollTo('Contact')" class="cursor-pointer px-6 py-3 border border-gray-500 dark:border-gray-100 text-gray-500 dark:text-gray-100 font-semibold rounded-md hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition">
           Contact Me
         </a>
-
       </div>
     </div>
 
@@ -128,15 +128,14 @@
     </div>
     
   </div>
-      <!-- Scroll Indicator -->
-    <div class="hidden md:block absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
-  <div class="w-8 h-14 border-2 border-gray-500 dark:border-gray-300 rounded-full relative flex items-start justify-center">
-    <div class="w-2 h-2 bg-gray-500 dark:bg-gray-300 rounded-full absolute scroll-dot-animation mt-2"></div>
-  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="hidden md:block absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20">
+    <div class="w-8 h-14 border-2 border-gray-500 dark:border-gray-300 rounded-full relative flex items-start justify-center">
+      <div class="w-2 h-2 bg-gray-500 dark:bg-gray-300 rounded-full absolute scroll-dot-animation mt-2"></div>
     </div>
-
+  </div>
 </section>
-
 
 <!-- About Section -->
 <section id="About" class="bg-white dark:bg-gray-950 text-gray-950 dark:text-gray-100 py-10 md:py-20 px-6 sm:px-12 lg:px-24 font-sans">
