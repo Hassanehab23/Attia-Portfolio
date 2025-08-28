@@ -5,8 +5,8 @@ import { Component, AfterViewInit, ElementRef } from '@angular/core';
   templateUrl: './dream-box.component.html',
   styleUrls: ['./dream-box.component.scss']
 })
-export class DreamBoxComponent implements AfterViewInit {
 
+export class DreamBoxComponent implements AfterViewInit {
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit() {
@@ -15,16 +15,19 @@ export class DreamBoxComponent implements AfterViewInit {
 
     counters.forEach((counter: HTMLElement) => {
       const targetStr = counter.getAttribute('data-target') || '0';
-      const isPercentage = counter.innerText.includes('%') || targetStr.includes('.');
+      const format = counter.getAttribute('data-format') || 'number';
       const target = parseFloat(targetStr);
-
       let count = 0;
 
-      const formatNumber = (num: number) => {
-        if (isPercentage) {
-          return num.toFixed(1) + '%';
-        } else {
-          return 'EGP ' + num.toLocaleString('en-US', { maximumFractionDigits: 0 });
+      const formatNumber = (num: number): string => {
+        switch (format) {
+          case 'currency':
+            return 'EGP ' + num.toFixed(2);
+          case 'percent':
+            return Math.floor(num) + '%';
+          case 'number':
+          default:
+            return new Intl.NumberFormat('en-US').format(Math.floor(num));
         }
       };
 
