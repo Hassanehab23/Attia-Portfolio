@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-el-faurouz',
@@ -6,9 +6,8 @@ import { Component, ElementRef } from '@angular/core';
   templateUrl: './el-faurouz.component.html',
   styleUrl: './el-faurouz.component.scss'
 })
-export class ElFaurouzComponent {
-
-    constructor(private el: ElementRef) {}
+export class ElFaurouzComponent implements AfterViewInit {
+  constructor(private el: ElementRef) {}
 
   ngAfterViewInit() {
     const counters = this.el.nativeElement.querySelectorAll('.counter');
@@ -16,21 +15,19 @@ export class ElFaurouzComponent {
 
     counters.forEach((counter: HTMLElement) => {
       const targetStr = counter.getAttribute('data-target') || '0';
-      const isPercentage = counter.innerText.includes('%') || targetStr.includes('.');
+      const format = counter.getAttribute('data-format') || 'number';
       const target = parseFloat(targetStr);
-
       let count = 0;
 
-      const formatNumber = (num: number) => {
-        if (isPercentage) {
-          return num.toFixed(1) + '%';
-        } else {
-          return new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'EGP',
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-          }).format(Math.floor(num));
+      const formatNumber = (num: number): string => {
+        switch (format) {
+          case 'currency':
+            return 'EGP ' + num.toFixed(2);
+          case 'percent':
+            return Math.floor(num) + '%';
+          case 'number':
+          default:
+            return new Intl.NumberFormat('en-US').format(Math.floor(num));
         }
       };
 
@@ -57,5 +54,4 @@ export class ElFaurouzComponent {
       updateCount();
     });
   }
-
 }
