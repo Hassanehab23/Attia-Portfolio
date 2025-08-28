@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-bogy',
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './bogy.component.scss'
 })
 export class BogyComponent {
-  el: any;
+  constructor(private el: ElementRef) {}
 
   ngAfterViewInit() {
     const counters = this.el.nativeElement.querySelectorAll('.counter');
